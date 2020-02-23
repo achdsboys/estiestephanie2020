@@ -1,0 +1,127 @@
+#include <kipr/botball.h>
+void move4in(void)
+{
+       
+    
+    
+    mav(2,250);
+    mav(3,250);
+    msleep(1500);
+    
+} 
+
+
+  void moveccw(void)
+{
+    //  45 ccw
+    mav(2,270);
+    mav(3,-270);
+    msleep(1650);
+    
+    
+}
+
+void tinyccw(void)
+{
+    //  45 ccw
+    mav(2,270);
+    mav(3,-270);
+    msleep(70);
+    
+    
+}
+void movecw(void)
+{
+  mav(2,-270);
+    mav(3,270);
+    msleep(1650);
+        
+}
+     void moveback(void)
+{
+      mav(2,-500);
+    mav(3,-500);
+    msleep(750);
+    
+     
+ }
+
+
+void move4infaster(void)
+{
+    //clear_motor_position_counter(0);
+    //clear_motor_position_counter(2);
+	//printf("motor 0 pos = %d",get_motor_position_counter(0));
+    mav(2,500);
+    mav(3,500);
+    msleep(750);
+    
+	//printf("at stop, motor 0 pos = %d",get_motor_position_counter(0));
+} 
+
+int main()
+{
+    //open arm
+    printf("set and open servo \n");
+    enable_servo(2);
+    enable_servo(3);
+    printf("open arm");
+    set_servo_position(3,50);
+   // msleep(2000);
+    printf("lower arm");
+    set_servo_position(2,550);
+   // msleep(2000);
+    // for checking
+  //  msleep(5000);
+    //move forward tbd
+    
+   // ao();
+   // msleep(1000);
+    
+    move4infaster();move4infaster();move4infaster();move4infaster();move4infaster();
+   // movecw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();
+   // tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();
+    move4infaster();move4infaster();move4infaster();move4infaster();move4infaster();
+    //close arm on material transport
+    
+  //   ao();
+    //msleep(1000);
+    ao();
+    msleep(200);
+    printf("close arm");
+    set_servo_position(3,500);
+  //  msleep(2000);
+   ao();
+    msleep(200);
+    //back up turn90ccw
+    moveback();moveback();moveback();
+   
+    moveccw();moveccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();
+    tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();
+    //move foward until royal blue pom location a
+    printf("raise arm");
+    set_servo_position(2,500);
+   // msleep(2000);
+    move4infaster();move4infaster();move4infaster();move4infaster();move4infaster();move4infaster();
+    move4infaster();move4infaster();
+    
+    move4infaster();move4infaster();tinyccw();
+    //stop tbd
+  // ao();
+    //msleep(1000);
+    //move to location b by sky blue pom
+    move4infaster();move4infaster();move4infaster();move4infaster();move4infaster();
+    
+     moveccw();moveccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();
+    //stop tbd
+       ao();
+    msleep(1000);
+    //move to mineral lab
+    move4infaster();move4infaster();move4infaster();move4infaster();move4infaster();
+     moveccw();moveccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();tinyccw();
+    printf("Hello World\n");
+     move4infaster();move4infaster();move4infaster();move4infaster();move4infaster();move4infaster();
+     move4infaster();move4infaster();move4infaster();move4infaster();
+    return 0;
+}
+
